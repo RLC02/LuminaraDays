@@ -1,4 +1,5 @@
 # LuminaraDays
+
 Datas que brilham no tempo. Api de consulta de feriados e eventos marcantes de qualquer lugar do mundo.
 
 ## Diagrama de Classe
@@ -8,7 +9,7 @@ classDiagram
     direction TB
 
     %% ===============================
-    %% DTO
+    %% DTO (Data Transfer Object)
     %% ===============================
     class HolidayDTO {
         - String date
@@ -18,7 +19,7 @@ classDiagram
     }
 
     %% ===============================
-    %% Repository
+    %% Repository (Data Access Layer)
     %% ===============================
     class HolidayRepository {
         + List<HolidayDTO> findAll()
@@ -31,7 +32,7 @@ classDiagram
     HolidayRepository <|.. HolidayRepositoryImpl
 
     %% ===============================
-    %% Service
+    %% Service Layer
     %% ===============================
     class HolidayService {
         + List<HolidayDTO> getHolidays()
@@ -53,7 +54,7 @@ classDiagram
     HolidayServiceImpl --> HolidayRepository : Uses
 
     %% ===============================
-    %% Controller
+    %% Controller Layer
     %% ===============================
     class HolidayController {
         - HolidayService holidayService
@@ -64,5 +65,4 @@ classDiagram
     }
 
     HolidayController --> HolidayService : Uses
-
 ```
