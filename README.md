@@ -4,7 +4,7 @@
 
 # LuminaraDays
 
-LuminaraDays é uma API inovadora que fornece informações sobre feriados de forma eficiente e organizada. Desenvolvida utilizando **Java Spring Boot**, a API permite que usuários consultem feriados nacionais e filtrá-los por data, nome e tipo.
+LuminaraDays é uma API que fornece informações sobre feriados de forma eficiente e organizada. Desenvolvida utilizando **Java Spring Boot**, a API permite que usuários consultem feriados nacionais e filtrá-los por data, nome e tipo.
 
 Com um design modular e escalável, o projeto segue boas práticas de desenvolvimento e inclui **Swagger** para documentação interativa.
 
