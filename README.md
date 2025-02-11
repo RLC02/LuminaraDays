@@ -5,31 +5,64 @@ Datas que brilham no tempo. Api de consulta de feriados e eventos marcantes de q
 
 ```mermaid
 classDiagram
-    class Holiday {
-        +String date
-        +String name
-        +String type
-        +getHolidayDetails() String
-    }
-    class Country {
-        +String code
-        +String name
-        +getCountryHolidays() List<Holiday>
-    }
-    class Region {
-        +String name
-        +getRegionHolidays() List<Holiday>
-    }
-    class User {
-        +String username
-        +String email
-        +String role
-        +getUserHolidays() List<Holiday>
+    direction TB
+
+    %% ===============================
+    %% DTO
+    %% ===============================
+    class HolidayDTO {
+        - String date
+        - String name
+        - String type
+        + HolidayDTO(String date, String name, String type)
     }
 
-    User --> "0..*" Holiday : "accesses"
-    Country "1" --> "0..*" Holiday : "has"
-    Region "1" --> "0..*" Holiday : "has"
-    User --> "0..*" Region : "can access"
-    User --> "0..*" Country : "can access"
+    %% ===============================
+    %% Repository
+    %% ===============================
+    class HolidayRepository {
+        + List<HolidayDTO> findAll()
+    }
+
+    class HolidayRepositoryImpl {
+        + List<HolidayDTO> findAll()
+    }
+
+    HolidayRepository <|.. HolidayRepositoryImpl
+
+    %% ===============================
+    %% Service
+    %% ===============================
+    class HolidayService {
+        + List<HolidayDTO> getHolidays()
+        + List<HolidayDTO> searchByDate(String date)
+        + List<HolidayDTO> searchByName(String name)
+        + List<HolidayDTO> searchByType(String type)
+    }
+
+    class HolidayServiceImpl {
+        - List<HolidayDTO> holidayCache
+        - int yearCache
+        + List<HolidayDTO> getHolidays()
+        + List<HolidayDTO> searchByDate(String date)
+        + List<HolidayDTO> searchByName(String name)
+        + List<HolidayDTO> searchByType(String type)
+    }
+
+    HolidayService <|.. HolidayServiceImpl
+    HolidayServiceImpl --> HolidayRepository : Uses
+
+    %% ===============================
+    %% Controller
+    %% ===============================
+    class HolidayController {
+        - HolidayService holidayService
+        + List<HolidayDTO> getHolidays()
+        + List<HolidayDTO> searchByDate(String date)
+        + List<HolidayDTO> searchByName(String name)
+        + List<HolidayDTO> searchByType(String type)
+    }
+
+    HolidayController --> HolidayService : Uses
+
 ```
