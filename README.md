@@ -21,9 +21,9 @@ Com um design modular e escalável, o projeto segue boas práticas de desenvolvi
 | <img src="https://img.shields.io/badge/-HTMLUnit-green?style=for-the-badge"/> | Biblioteca para web scraping. |
 
 ### **Fonte para scraping**
-| Fonte               | Ícone | Descrição                          | Link |
-|-------------------|-------|------------------------------------|------|
-| **Time and Date** | 📅   | Fornece informações sobre feriados | [TimeAndDate](https://www.timeanddate.com/holidays/) |
+| Fonte               |   Descrição                          | Link |
+|-------------------|-----------------------------------|------|
+| **Time and Date**   | Fornece informações sobre feriados | [TimeAndDate](https://www.timeanddate.com/holidays/) |
 
 ---
 
